@@ -89,7 +89,7 @@ class OutOfGumballsState implements State {
 }
 
 
-class GumBallStateMachine {
+public class GumBallStateMachine {
 	int count = 0;
 	
 	State state;

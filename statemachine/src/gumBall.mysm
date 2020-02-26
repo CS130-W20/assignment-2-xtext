@@ -1,0 +1,28 @@
+statemachine gumBall {
+	variables {
+		variable count
+	}
+	events {
+		event insertQuarter
+		event ejectQuarter
+		event turnCrank
+		event dispenseGumball
+	}
+	states {
+		start noQuarter;
+		state noQuarter {
+			on insertQuarter => hasQuarter
+		}
+		state hasQuarter {
+			on ejectQuarter => noQuarter
+			on turnCrank => gumballSold
+		}
+		state gumballSold {
+			on dispenseGumball if {count > 0} => outOfGumballs
+			on insertQuarter => hasQuarter
+		}
+		state outOfGumballs {
+			
+		}
+	}
+}
